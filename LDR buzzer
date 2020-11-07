@@ -1,0 +1,26 @@
+int ldr = A0;
+int val;
+int buzz = 9;
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(buzz, OUTPUT);
+pinMode(ldr, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+val = analogRead(ldr);
+if(val > 0 && val< 523)
+{
+  analogWrite(buzz, 255);
+  
+}
+
+else 
+{
+  analogWrite(buzz, 100);
+}
+
+}
