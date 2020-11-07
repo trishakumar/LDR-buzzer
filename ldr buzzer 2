@@ -1,0 +1,22 @@
+int ldr = A0;
+int val;
+int buzz = 9;
+int dt;
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(buzz, OUTPUT);
+pinMode(ldr, INPUT);
+}
+
+void loop() {                                                                           
+  // put your main code here, to run repeatedly:
+
+val = analogRead(ldr);
+dt = (9./550.)*val-(9.*200./500.)+1.;
+Serial.println(dt);
+digitalWrite(buzz, HIGH);
+delay(dt);
+digitalWrite(buzz, LOW);
+delay(dt);
+}
